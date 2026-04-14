@@ -12,6 +12,7 @@ const PRODUCTS = [
         colorHex: '#F1B11B',
         colorName: 'yellow',
         badge: 'ORIGINAL',
+        imgFile: 'img/classic_salted.png',
         sizes: [
             { label: 'Small', weight: '52g', price: 20 },
             { label: 'Medium', weight: '115g', price: 50 },
@@ -27,6 +28,7 @@ const PRODUCTS = [
         colorHex: '#005BBB',
         colorName: 'blue',
         badge: 'BESTSELLER',
+        imgFile: 'img/magic_masala.png',
         sizes: [
             { label: 'Small', weight: '52g', price: 20 },
             { label: 'Medium', weight: '115g', price: 50 },
@@ -42,6 +44,7 @@ const PRODUCTS = [
         colorHex: '#00A651',
         colorName: 'green',
         badge: 'FAN FAVORITE',
+        imgFile: 'img/cream_onion.png',
         sizes: [
             { label: 'Small', weight: '52g', price: 20 },
             { label: 'Medium', weight: '115g', price: 50 },
@@ -57,6 +60,7 @@ const PRODUCTS = [
         colorHex: '#EF1C24',
         colorName: 'red',
         badge: 'TRENDING',
+        imgFile: 'img/tomato_tango.png',
         sizes: [
             { label: 'Small', weight: '52g', price: 20 },
             { label: 'Medium', weight: '115g', price: 50 },
@@ -66,8 +70,12 @@ const PRODUCTS = [
     }
 ];
 
-// Helper to get product color as SVG fill for placeholder images
+// Returns real image path if available, otherwise generates a vivid SVG placeholder
 function getProductSVG(product) {
+    // Return real image if available (copy generated PNGs to img/ folder)
+    if (product.imgFile) return product.imgFile;
+
+    // SVG fallback
     const color = product.colorHex;
     return `data:image/svg+xml,${encodeURIComponent(`
         <svg xmlns="http://www.w3.org/2000/svg" width="300" height="400" viewBox="0 0 300 400">

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /checkout.html
+Disallow: /account.html
+Disallow: /order.html
+
+Sitemap: https://aditya-pardhi-lays.vercel.app/sitemap.xml
